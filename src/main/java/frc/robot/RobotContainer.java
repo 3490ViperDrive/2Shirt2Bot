@@ -4,15 +4,19 @@
 
 package frc.robot;
 
+import static edu.wpi.first.units.Units.Value;
+
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
   CommandXboxController player1;
   DriveTrain theDriveTrain;
+  Shooter theShooter;
 
 
   
@@ -30,6 +34,7 @@ public class RobotContainer {
     player1.povRight().and(player1.y()).onTrue(null);
     player1.povUp().onTrue(null);
     player1.povDown().onTrue(null);
+    player1.a().onTrue(theShooter.adjustArm(0));
 
   }
 
